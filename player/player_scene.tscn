@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://burv07w35tgwm"]
 
-[ext_resource type="Script" uid="uid://biraeyj5pq1lb" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://biraeyj5pq1lb" path="res://player/player_movement.gd" id="1_3vyb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
 albedo_color = Color(0.72351456, 2.3704395e-06, 7.70092e-07, 1)
@@ -22,3 +22,9 @@ mesh = SubResource("CapsuleMesh_4flbx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1564041183]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=812345877]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=444844669]
+transform = Transform3D(1, 0, 0, 0, 0.9063078, 0.4226183, 0, -0.4226183, 0.9063078, 0, 3.0000002, 2.4999998)
+fov = 100.0
