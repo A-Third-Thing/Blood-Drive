@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var fall_acceleration = 75
 # Vertical impulse applied to the character upon jumping in meters per second.
 @export var jump_impulse = 20
+# Variable for rotation speed of camera
+@export var rotation_speed = 12.0
 
 var target_velocity = Vector3.ZERO
 
@@ -32,7 +34,7 @@ func _physics_process(delta):
 		direction = direction.rotated(Vector3.UP, rotation.y)
 		direction = direction.normalized()
 		# Setting the basis property will affect the rotation of the node.
-		$Pivot.basis = Basis.looking_at(direction)
+		$Pivot.look_at(global_position + direction, Vector3.UP)
 	
 	# Ground Velocity
 	target_velocity.x = direction.x * speed
@@ -45,12 +47,15 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+	
+	
 
 ## Camera
 
 @export var mouse_sensitivity := 0.005
 @export var min_pitch := -0.9
 @export var max_pitch := 0.8
+
 
 func _ready() -> void:
 	# Hide and capture the mouse
