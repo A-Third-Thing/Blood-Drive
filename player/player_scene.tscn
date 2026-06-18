@@ -8,6 +8,12 @@ albedo_color = Color(0.72351456, 2.3704395e-06, 7.70092e-07, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 material = SubResource("StandardMaterial3D_sh265")
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0khpw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciewh"]
+transparency = 1
+albedo_color = Color(0.5764706, 1, 1, 1)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0khpw"]
@@ -22,8 +28,12 @@ script = ExtResource("1_3vyb7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=315907665]
 mesh = SubResource("CapsuleMesh_4flbx")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/MeshInstance3D" unique_id=1099177092]
+transform = Transform3D(0.55604625, 0, 0, 0, 0.17279372, 0, 0, 0, 0.3767364, 0, 0.39545703, -0.34501898)
+mesh = SubResource("CapsuleMesh_0khpw")
+surface_material_override/0 = SubResource("StandardMaterial3D_ciewh")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1564041183]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=2094508380]
